@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { Blog } from './components/Blog'
 import { BlogPost } from './components/BlogPost'
 import { NewPost } from './components/NewPost'
+import { EditPost } from './components/EditPost'
 import { Nav } from './components/Nav'
 
 import axios from 'axios'
@@ -27,11 +28,19 @@ const [blogData, setBlogData] = useState([])
                     render={() => <Blog blogData={blogData}/>}
                 />
                 <Route
-                    path="/blog/:id"
+                    exact path="/blog/:id"
                     render={props => {
                         const blogPost = blogData.find(e => e._id.toString() === props.match.params.id)
                         props = {...props, ...blogPost}
                         return <BlogPost {...props}/>
+                    }}
+                />
+                <Route
+                    path="/blog/:id/edit"
+                    render={props => {
+                        const blogPost = blogData.find(e => e._id.toString() === props.match.params.id)
+                        props = {...props, ...blogPost}
+                        return <EditPost {...props}/>
                     }}
                 />
                 <Route

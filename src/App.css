@@ -10,8 +10,8 @@ body {
     padding-top: 3em;
 }
 
-h1 {
-    margin: 1.5em;
+h1, h3 {
+    margin: 2rem;
     color: rgb(220,220,220);
     text-shadow: 1px 1px 1px black;
 }
@@ -29,12 +29,12 @@ h1 {
     margin: 5px;
     padding: 10px;
     border-radius: 15px;
-    text-align: center;
     color: white;
-}
-
-.preview-text {
-    color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .nav-link {
@@ -54,11 +54,9 @@ h1 {
 }
 
 .new-box {
-    display: flex;
     background-color: rgb(220,220,220);
-    justify-content: center;
-    align-items: center;
     color: rgb(52,58,64);
+    transition-duration: 0.2s;
 }
 
 .new-box:hover {
@@ -67,9 +65,13 @@ h1 {
     transition-duration: 0.2s;
 }
 
-#new-form {
+#edit-form, #new-form {
     margin: 0 4rem;
     resize: none;
     color: rgb(220,220,220);
 }
 
+hr {
+    background-color: rgb(52,58,64);
+    margin: 2rem;
+}

@@ -7,22 +7,21 @@ export const Blog = (props) => {
                 to={`/blog/${e._id}`}
                 className="nav-link">
                 <div className="wrap">
-                    <h5>{e.name}</h5>
-                    <p className="preview-text">{e.content}</p>
+                    <h4>{e.name}</h4>
                 </div>
             </Link>
         )
     })
     return (
         <div className="container pt-3">
-            <h1>Blog</h1>
+            <h1>Welcome, Fool</h1>
             <div className="wrapper pt-3 row">
                 {blogDatum}
                 <Link
                     to={'/newpost'}
                     className="nav-link">
                     <div className="wrap new-box">
-                        <h2>New Post</h2>
+                        <h4>New Post</h4>
                     </div>
                 </Link>
             </div>
