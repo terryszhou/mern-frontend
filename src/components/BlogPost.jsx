@@ -1,7 +1,9 @@
-export const BlogPost = () => {
+export const BlogPost = (props) => {
     return (
         <div>
-            Hello from BlogPost
+            {props.name}
+            {props.title}
+            {props.content}
         </div>
     )
 }
