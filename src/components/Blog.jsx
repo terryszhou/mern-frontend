@@ -14,7 +14,7 @@ export const Blog = (props) => {
     })
     return (
         <div className="container pt-3">
-            <h1>Welcome, Fool</h1>
+            <h1>The Incredible True Blog</h1>
             <div className="wrapper pt-3 row">
                 {blogDatum}
                 <Link

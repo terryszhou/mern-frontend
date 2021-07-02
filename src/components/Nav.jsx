@@ -13,6 +13,11 @@ export const Nav = () => {
                             New Post
                         </a>
                     </div>
+                    <div class="nav-item">
+                        <a href="https://github.com/terryszhou/mern-frontend" target="_blank" rel="noreferrer" class="nav-link">
+                            <div class="icon fab fa-github"></div>
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
