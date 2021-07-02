@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Blog } from './components/Blog'
 import { BlogPost } from './components/BlogPost'
+import { NewPost } from './components/NewPost'
+import { Nav } from './components/Nav'
 
 import axios from 'axios'
 
@@ -32,6 +34,11 @@ const [blogData, setBlogData] = useState([])
                         return <BlogPost {...props}/>
                     }}
                 />
+                <Route
+                    path="/newpost"
+                    component={NewPost}
+                />
+                <Nav />
         </BrowserRouter>
     )
 }
