@@ -1,4 +1,15 @@
+import { useState } from 'react'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+
 export const NewPost = () => {
+    const history = useHistory()
+    const [newPost, setNewPost] = useState({
+        name: "",
+        author: "",
+        content: ""
+    })
+
     return (
         <div className="container pt-3">
             <h1>New Incredible True Post</h1>
@@ -6,7 +17,7 @@ export const NewPost = () => {
                 <form id="new-form">
                     <div className="form-group">
                         <label for="name">Name</label>
-                        <input type="text" className="form-control" name="name"/>
+                        <input type="text" className="form-control" name="name" />
                     </div>
                     <div className="form-group">
                         <label for="name">Author</label>

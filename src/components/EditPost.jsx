@@ -6,7 +6,7 @@ export const EditPost = (props) => {
     const [author, setAuthor] = useState("")
     const [content, setContent] = useState("")
 
-    useEffect(() => {
+    const saveEdit = () => {
         axios.put(`http://localhost:4000/blog/${props._id}`, {
             name: name,
             author: author,
@@ -14,13 +14,13 @@ export const EditPost = (props) => {
         })
         .then(res => console.log(res))
         .catch(err => console.log(err))
-    },[name, author, content, props._id])
+    }
 
     return (
         <div className="container pt-3">
             <h1>Edit Blog Post</h1>
             <div className="wrapper pt-3">
-                <form id="edit-form">
+                <form id="edit-form" onSubmit={saveEdit}>
                     <div className="form-group">
                         <label for="name">Name</label>
                         <input 
@@ -48,7 +48,7 @@ export const EditPost = (props) => {
                             placeholder={props.content}/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Edit Post" className="btn btn-dark"/>
+                        <input type="submit" value="Save Edits" className="btn btn-dark"/>
                     </div>
                 </form>
             </div>
