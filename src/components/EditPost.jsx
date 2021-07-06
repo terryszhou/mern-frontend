@@ -6,13 +6,14 @@ export const EditPost = (props) => {
     const [author, setAuthor] = useState("")
     const [content, setContent] = useState("")
 
-    const saveEdit = () => {
+    const saveEdit = (e) => {
+        e.preventDefault()
         axios.put(`http://localhost:4000/blog/${props._id}`, {
             name: name,
             author: author,
             content: content
         })
-        .then(res => console.log(res))
+        .then(() => window.location = '/blog')
         .catch(err => console.log(err))
     }
 
