@@ -1,24 +1,74 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
 export const EditPost = (props) => {
+    const [name, setName] = useState("")
+    const [author, setAuthor] = useState("")
+    const [content, setContent] = useState("")
+
+    useEffect(() => {
+        axios.put(`http://localhost:4000/blog/${props._id}`, {
+            name: name,
+            author: author,
+            content: content
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    },[name, author, content, props._id])
+
     return (
         <div className="container pt-3">
             <h1>Edit Blog Post</h1>
             <div className="wrapper pt-3">
                 <form id="edit-form">
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder={props.name}/>
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                            placeholder={props.name}/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="name">Author</label>
-                        <input type="text" class="form-control" name="author" placeholder={props.author}/>
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            value={author}
+                            onChange={e => setAuthor(e.target.value)}
+                            placeholder={props.author}/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="content">Content</label>
-                        <textarea class="form-control" name="content" placeholder={props.content}/>
+                        <textarea 
+                            className="form-control" 
+                            value={content}
+                            onChange={e => setContent(e.target.value)}
+                            placeholder={props.content}/>
                     </div>
-                    <button className="btn btn-dark">Edit</button>
+                    <div className="form-group">
+                        <input type="submit" value="Edit Post" className="btn btn-dark"/>
+                    </div>
                 </form>
             </div>
         </div>
     )
 }
+
+// SCRAP CODE
+// useEffect(() => {
+//     const editPost = (e) => {
+//         e.preventDefault()
+
+//         const editObject = {
+//             name: name,
+//             author: author,
+//             content: content
+//         }
+
+//         axios.put(`http://localhost:4000/blog`, editObject)
+//             .then(res => console.log(res.data))
+//             .catch(err => console.log(err))
+//     }
+// })

@@ -14,10 +14,7 @@ const [blogData, setBlogData] = useState([])
 
     useEffect(() => {
         axios.get("http://localhost:4000/blog")
-        .then(res => {
-            setBlogData(res.data)
-            console.log(blogData)
-        })
+        .then(res => setBlogData(res.data))
         .catch(err => console.log(err))
     },[blogData])
 
